@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروژه چند صفحه‌ای</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .partition {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <!-- صفحه ۱ -->
+    <div class="page active" id="page1">
+        <div class="row">
+            <div class="col-md-6 partition">
+                <h3>اطلاعات شخصی</h3>
+                <div class="mb-3">
+                    <label class="form-label">نام کامل</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">ایمیل</label>
+                    <input type="email" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="col-md-6 partition">
+                <h3>اطلاعات تماس</h3>
+                <div class="mb-3">
+                    <label class="form-label">تلفن همراه</label>
+                    <input type="tel" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">آدرس</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary float-end next-page">صفحه بعد →</button>
+    </div>
+
+    <!-- صفحه ۲ -->
+    <div class="page" id="page2">
+        <div class="row">
+            <div class="col-md-4 partition">
+                <h3>علایق</h3>
+                <div class="mb-3">
+                    <label class="form-label">ورزش مورد علاقه</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">رنگ مورد علاقه</label>
+                    <input type="color" class="form-control">
+                </div>
+            </div>
+            
+            <div class="col-md-8 partition">
+                <h3>توضیحات بیشتر</h3>
+                <div class="mb-3">
+                    <label class="form-label">بیوگرافی</label>
+                    <textarea class="form-control" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-secondary float-start prev-page">← صفحه قبل</button>
+        <button class="btn btn-primary float-end next-page">صفحه بعد →</button>
+    </div>
+
+    <!-- صفحه ۳ -->
+    <div class="page" id="page3">
+        <div class="alert alert-success">
+            <h3>فرم با موفقیت تکمیل شد!</h3>
+            <p>از همکاری شما متشکریم</p>
+        </div>
+        <button class="btn btn-secondary prev-page">← صفحه قبل</button>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    let currentPage = 1;
+    const totalPages = 3;
+
+    $('.next-page').click(function() {
+        if(validatePage(currentPage)) {
+            $(`#page${currentPage}`).removeClass('active');
+            currentPage++;
+            $(`#page${currentPage}`).addClass('active');
+        }
+    });
+
+    $('.prev-page').click(function() {
+        $(`#page${currentPage}`).removeClass('active');
+        currentPage--;
+        $(`#page${currentPage}`).addClass('active');
+    });
+
+    function validatePage(pageNumber) {
+        let isValid = true;
+        $(`#page${pageNumber} input[required]`).each(function() {
+            if (!$(this).val()) {
+                isValid = false;
+                $(this).addClass('is-invalid');
+            } else {
+                $(this).removeClass('is-invalid');
+            }
+        });
+        return isValid;
+    }
+});
+</script>
+
+</body>
+</html>
