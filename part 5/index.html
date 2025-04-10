@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قولنامه</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      direction: rtl;
+      font-family: Tahoma, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .bordered-box {
+      border: 2px solid #eee;
+      border-radius: 15px;
+      padding: 30px;
+      background-color: #fff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .input-inline {
+      display: inline-block;
+      width: auto;
+      min-width: 120px;
+      margin: 0 5px;
+      border: none;
+      border-bottom: 1px solid #000;
+      background: transparent;
+      font-size: 1rem;
+    }
+    hr {
+      border: 1px solid #ccc;
+      margin: 1.5rem 0;
+    }
+    p {
+      text-align: justify;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="bordered-box">
+      <h2 class="text-center mb-4">قولنامه</h2>
+      <form action="/submit-contract" method="post">
+        <p>
+          این قولنامه فی‌ما‌بین 
+          <input type="text" name="sellerName" class="input-inline" placeholder="آقای/خانم">
+          فرزند 
+          <input type="text" name="sellerFather" class="input-inline" placeholder="نام پدر">
+          به شماره شناسنامه 
+          <input type="text" name="sellerId" class="input-inline" placeholder="شماره شناسنامه">
+          صادره از 
+          <input type="text" name="sellerIssued" class="input-inline" placeholder="محل صدور">
+          ساکن 
+          <input type="text" name="sellerAddress" class="input-inline" placeholder="آدرس">
+          که از این پس فروشنده نامیده می‌شود، از یک طرف، و 
+          <input type="text" name="buyerName" class="input-inline" placeholder="آقای/خانم">
+          فرزند 
+          <input type="text" name="buyerFather" class="input-inline" placeholder="نام پدر">
+          به شماره شناسنامه 
+          <input type="text" name="buyerId" class="input-inline" placeholder="شماره شناسنامه">
+          صادره از 
+          <input type="text" name="buyerIssued" class="input-inline" placeholder="محل صدور">
+          ساکن 
+          <input type="text" name="buyerAddress" class="input-inline" placeholder="آدرس">
+          که از این پس خریدار نامیده می‌شود، از طرف دیگر، به شرح زیر تنظیم و منعقد گردید:
+        </p>
+
+        <hr>
+
+        <p>
+          1. فروشنده به موجب این قولنامه متعهد گردید که تمام شش‌دانگ یک دستگاه ملک به مساحت 
+          <input type="text" name="propertyArea" class="input-inline" placeholder="مساحت (متر مربع)">
+          متر مربع، دارای پلاک ثبتی شماره 
+          <input type="text" name="registrationNumber" class="input-inline" placeholder="شماره پلاک">
+          واقع در بخش 
+          <input type="text" name="section" class="input-inline" placeholder="بخش">
+          شهرستان 
+          <input type="text" name="city" class="input-inline" placeholder="شهر">
+          به نشانی 
+          <input type="text" name="propertyAddress" class="input-inline" placeholder="نشانی ملک">
+          را با کلیه حقوق و منافع قانونی و شرعی آن به خریدار واگذار نماید.
+        </p>
+
+        <hr>
+
+        <p>
+          2. مبلغ کل ثمن معامله 
+          <input type="text" name="totalAmount" class="input-inline" placeholder="کل مبلغ">
+          ریال می‌باشد که خریدار متعهد گردید مبلغ 
+          <input type="text" name="initialPayment" class="input-inline" placeholder="پرداخت اولیه">
+          ریال آن را نقداً/چکی به شماره 
+          <input type="text" name="checkNumber" class="input-inline" placeholder="شماره چک">
+          مورخ 
+          <input type="text" name="checkDate" class="input-inline" placeholder="تاریخ چک">
+          در تاریخ امضای این قولنامه به فروشنده پرداخت نماید و مابقی مبلغ به شرح زیر پرداخت خواهد شد:
+          <br>
+          - مبلغ 
+          <input type="text" name="payment1" class="input-inline" placeholder="پرداخت اول">
+          ریال در تاریخ 
+          <input type="text" name="paymentDate1" class="input-inline" placeholder="تاریخ پرداخت">
+          <br>
+          - مبلغ 
+          <input type="text" name="payment2" class="input-inline" placeholder="پرداخت دوم">
+          ریال در تاریخ 
+          <input type="text" name="paymentDate2" class="input-inline" placeholder="تاریخ پرداخت">
+        </p>
+
+        <hr>
+
+        <p>
+          3. فروشنده متعهد گردید در تاریخ 
+          <input type="text" name="documentDate" class="input-inline" placeholder="تاریخ تنظیم سند">
+          در دفترخانه شماره 
+          <input type="text" name="notaryNumber" class="input-inline" placeholder="شماره دفترخانه">
+          حاضر شده و نسبت به تنظیم سند رسمی به نام خریدار اقدام نماید. در صورت عدم حضور فروشنده در تاریخ مقرر، خریدار مجاز به مراجعه به مراجع قضایی و دریافت گواهی عدم حضور می‌باشد.
+        </p>
+
+        <hr>
+
+        <p>
+          4. کلیه هزینه‌های نقل‌وانتقال اعم از مالیات، عوارض، حق‌الثبت و حق‌التحریر به عهده 
+          <input type="text" name="costResponsibility" class="input-inline" placeholder="ذینفع هزینه‌ها">
+          خواهد بود.
+        </p>
+
+        <hr>
+
+        <p>
+          5. این قولنامه در دو نسخه متحدالمتن تنظیم شده و طرفین با اطلاع کامل از مفاد آن، امضا و اثر انگشت خود را ذیل آن ثبت نموده‌اند.
+        </p>
+
+        <hr>
+
+        <p>
+          امضای فروشنده: 
+          <input type="text" name="sellerSignature" class="input-inline" placeholder="امضا">
+          <br>
+          امضای خریدار: 
+          <input type="text" name="buyerSignature" class="input-inline" placeholder="امضا">
+          <br>
+          شاهد اول (نام و امضاء): 
+          <input type="text" name="witness1" class="input-inline" placeholder="نام و امضا">
+          <br>
+          شاهد دوم (نام و امضاء): 
+          <input type="text" name="witness2" class="input-inline" placeholder="نام و امضا">
+        </p>
+
+        <div class="text-center mt-4">
+          <button type="button" class="btn btn-secondary me-2" onclick="history.back()">بازگشت</button>
+          <button type="submit" class="btn btn-success">ثبت قولنامه</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
